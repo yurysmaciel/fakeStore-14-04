@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import Anuncios from '../components/Anuncios';
 import Footer from '../components/Footer';
+import MeusAnuncios from '../components/MeusAnuncios';
 import { Link } from 'react-router-dom';
 
-export default function InicioPage() {
+export default function MeusAnunciosPage() {
 
     const [state, setState] = useState(false)
 
@@ -81,7 +81,7 @@ export default function InicioPage() {
                 </div>
             </div>
         </nav>
-        <Anuncios />
+        <MeusAnuncios />
         <Footer />
         </>
     )

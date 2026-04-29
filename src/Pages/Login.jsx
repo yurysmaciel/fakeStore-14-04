@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
     const [formLogin, setFormLogin] = useState({
@@ -30,7 +31,7 @@ export default function LoginPage() {
                     <img src="https://logowik.com/content/uploads/images/t_olx5151.jpg" width={150} className="mx-auto" />
                     <div className="mt-5 space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Logue com a sua conta</h3>
-                        <p className="">Não possui uma conta? <a href="javascript:void(0)" className="font-medium text-indigo-600 hover:text-indigo-500">Clique aqui!</a></p>
+                        <p className="">Não possui uma conta? <Link to={"/Cadastro"} className="font-medium text-indigo-600 hover:text-indigo-500">Clique aqui!</Link></p>
                     </div>
                 </div>
                 <form

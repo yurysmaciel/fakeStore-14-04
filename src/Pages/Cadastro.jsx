@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function CadastroPage() {
     const [formCadastro, setFormCadastro] = useState({
@@ -60,7 +61,7 @@ export default function CadastroPage() {
                         <img src="https://floatui.com/logo.svg" width={150} className="lg:hidden" />
                         <div className="mt-5 space-y-2">
                             <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Sign up</h3>
-                            <p className="">Já tem uma conta? <a href="javascript:void(0)" className="font-medium text-indigo-600 hover:text-indigo-500">Clique aqui!</a></p>
+                            <p className="">Já tem uma conta? <Link to={"/Login"} className="font-medium text-indigo-600 hover:text-indigo-500">Clique aqui!</Link></p>
                         </div>
                     </div>
                     <div className="grid grid-cols-3 gap-x-3">
