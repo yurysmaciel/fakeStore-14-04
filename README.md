@@ -33,7 +33,7 @@ Este projeto foi criado com fins educacionais para praticar conceitos de desenvo
 ---
 
 ## 📂 Estrutura do projeto
-src/
+src/  
 ├── components/  
 ├── pages/  
 │ ├── Home.jsx  
