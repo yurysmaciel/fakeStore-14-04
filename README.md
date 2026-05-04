@@ -34,14 +34,14 @@ Este projeto foi criado com fins educacionais para praticar conceitos de desenvo
 
 ## 📂 Estrutura do projeto
 src/
-├── components/
-├── pages/
-│ ├── Home.jsx
-│ ├── EditarAnuncio.jsx
-│ └── CadastroPage.jsx
-├── routes/
-├── assets/
-└── App.jsx
+├── components/  
+├── pages/  
+│ ├── Home.jsx  
+│ ├── EditarAnuncio.jsx   
+│ └── CadastroPage.jsx  
+├── routes/  
+├── assets/  
+└── App.jsx  
 
 
 ---
