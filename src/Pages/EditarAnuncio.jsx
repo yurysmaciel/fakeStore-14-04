@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function EditarAnuncio() {
-  const [formCadastro, setFormCadastro] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
   const { id } = useParams();
 
   const anuncios = [
@@ -46,12 +40,20 @@ export default function EditarAnuncio() {
 
   const anuncioSelecionado = anuncios.find((item) => item.id === Number(id));
 
+  const [EditarAnuncio, setEditarAnuncio] = useState({
+    name: anuncioSelecionado?.name || "",
+    title: anuncioSelecionado?.title || "",
+    avatar: anuncioSelecionado?.avatar || "",
+    desc: anuncioSelecionado?.desc || "",
+  });
+
   function handleOnChange(event) {
     const { name, value } = event.target;
-    setFormCadastro({
-      ...formCadastro,
+
+    setEditarAnuncio((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   }
 
   function handleSubitCadastro(event) {
@@ -64,26 +66,24 @@ export default function EditarAnuncio() {
     <main className="w-full flex">
       <div className="relative flex-1 hidden items-center justify-center h-screen bg-gray-900 lg:flex">
         <div className="relative z-10 w-full max-w-md bg-white rounded-xl shadow-lg p-5">
-          {anuncioSelecionado ? (
+          {EditarAnuncio ? (
             <>
               <img
-                src={anuncioSelecionado.avatar}
-                alt={anuncioSelecionado.name}
+                src={EditarAnuncio.avatar}
+                alt={EditarAnuncio.name}
                 className="w-full h-48 object-cover rounded-lg"
               />
 
               <div className="mt-4 space-y-2">
                 <h2 className="text-xl font-bold text-gray-800">
-                  {anuncioSelecionado.name}
+                  {EditarAnuncio.name}
                 </h2>
 
                 <p className="text-lg font-semibold text-indigo-600">
-                  {anuncioSelecionado.title}
+                  {EditarAnuncio.title}
                 </p>
 
-                <p className="text-gray-600 text-sm">
-                  {anuncioSelecionado.desc}
-                </p>
+                <p className="text-gray-600 text-sm">{EditarAnuncio.desc}</p>
               </div>
             </>
           ) : (
@@ -111,41 +111,42 @@ export default function EditarAnuncio() {
                 required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
+                value={EditarAnuncio.name}
               />
             </div>
             <div>
               <label className="font-medium">Preço</label>
               <input
-                type="number"
-                name="preco"
+                type="text"
+                name="title"
                 required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
+                value={EditarAnuncio.title}
               />
             </div>
             <div>
               <label className="font-medium">URL da imagem</label>
               <input
                 type="text"
-                name="url"
+                name="avatar"
                 required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
+                value={EditarAnuncio.avatar}
               />
             </div>
             <div>
               <label className="font-medium">Descrição</label>
               <input
                 type="text"
-                name="descricao"
+                name="desc"
                 required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
+                value={EditarAnuncio.desc}
               />
             </div>
-            <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
-              Criar conta
-            </button>
           </form>
         </div>
       </div>
