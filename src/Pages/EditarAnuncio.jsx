@@ -1,41 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function EditarAnuncio() {
+export default function EditarAnuncio({ anuncios, setAnuncios }) {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const anuncios = [
-    {
-      id: 1,
-      avatar: "https://img.olx.com.br/images/75/756620272081696.webp",
-      name: "CBS Bros 160 0KM",
-      title: "27.900",
-      desc: "Moto 0KM a pronto entrega...",
-    },
-    {
-      id: 2,
-      avatar: "https://img.olx.com.br/images/69/690677496003681.webp",
-      name: "Toyota Corolla",
-      title: "107.900",
-      desc: "Vendo corolla zerado",
-    },
-    {
-      id: 3,
-      avatar: "https://img.olx.com.br/images/87/874603603055067.webp",
-      name: "Toyota Hilux SW4 SRV D4-d 4X4 3.0 TDI Dies. AUT 2011",
-      title: "118.900",
-      desc: "Vendo hilux sw4",
-    },
-    {
-      id: 4,
-      avatar: "https://img.olx.com.br/images/51/512618870200834.webp",
-      name: "LANDER 2016/17",
-      title: "16.500",
-      desc: "Lander nova",
-      slug: "Lander-2016",
-    },
-  ];
+  function EnviarDados(event) {
+    event.preventDefault();
+
+    const anunciosAtualizados = anuncios.map((item) => {
+      if (item.id === Number(id)) {
+        return {
+          ...item,
+          ...EditarAnuncio,
+        };
+      }
+
+      return item;
+    });
+
+    setAnuncios(anunciosAtualizados);
+    navigate("/MeusAnuncios");
+  }
 
   const anuncioSelecionado = anuncios.find((item) => item.id === Number(id));
 
@@ -53,12 +41,6 @@ export default function EditarAnuncio() {
       ...prev,
       [name]: value,
     }));
-  }
-
-  function handleSubitCadastro(event) {
-    event.preventDefault();
-
-    console.log(formCadastro);
   }
 
   return (
@@ -101,13 +83,12 @@ export default function EditarAnuncio() {
       <div className="flex-1 flex items-center justify-center h-screen">
         <div className="w-full max-w-md space-y-8 px-4 bg-white text-gray-600 sm:px-0">
           <div className="grid grid-cols-3 gap-x-3"></div>
-          <form onSubmit={handleSubitCadastro} className="space-y-5">
+          <form onSubmit={EnviarDados} className="space-y-5">
             <div>
               <label className="font-medium">Nome do item</label>
               <input
                 type="text"
                 name="name"
-                required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
                 value={EditarAnuncio.name}
@@ -118,7 +99,6 @@ export default function EditarAnuncio() {
               <input
                 type="number"
                 name="title"
-                required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
                 value={EditarAnuncio.title}
@@ -129,7 +109,6 @@ export default function EditarAnuncio() {
               <input
                 type="text"
                 name="avatar"
-                required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
                 value={EditarAnuncio.avatar}
@@ -140,12 +119,17 @@ export default function EditarAnuncio() {
               <input
                 type="text"
                 name="desc"
-                required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 onChange={handleOnChange}
                 value={EditarAnuncio.desc}
               />
             </div>
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+            >
+              Salvar alterações
+            </button>
           </form>
         </div>
       </div>
