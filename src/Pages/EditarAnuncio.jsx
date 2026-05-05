@@ -26,7 +26,6 @@ export default function EditarAnuncio() {
       name: "Toyota Hilux SW4 SRV D4-d 4X4 3.0 TDI Dies. AUT 2011",
       title: "118.900",
       desc: "Vendo hilux sw4",
-      slug: "Toyota-Hilux-SW4",
     },
     {
       id: 4,
