@@ -10,21 +10,21 @@ export default function EditarAnuncio() {
       id: 1,
       avatar: "https://img.olx.com.br/images/75/756620272081696.webp",
       name: "CBS Bros 160 0KM",
-      title: "R$ 27.900",
+      title: "27.900",
       desc: "Moto 0KM a pronto entrega...",
     },
     {
       id: 2,
       avatar: "https://img.olx.com.br/images/69/690677496003681.webp",
       name: "Toyota Corolla",
-      title: "R$ 107.900",
+      title: "107.900",
       desc: "Vendo corolla zerado",
     },
     {
       id: 3,
       avatar: "https://img.olx.com.br/images/87/874603603055067.webp",
       name: "Toyota Hilux SW4 SRV D4-d 4X4 3.0 TDI Dies. AUT 2011",
-      title: "R$ 118.900",
+      title: "118.900",
       desc: "Vendo hilux sw4",
       slug: "Toyota-Hilux-SW4",
     },
@@ -32,7 +32,7 @@ export default function EditarAnuncio() {
       id: 4,
       avatar: "https://img.olx.com.br/images/51/512618870200834.webp",
       name: "LANDER 2016/17",
-      title: "R$ 16.500",
+      title: "16.500",
       desc: "Lander nova",
       slug: "Lander-2016",
     },
@@ -80,7 +80,7 @@ export default function EditarAnuncio() {
                 </h2>
 
                 <p className="text-lg font-semibold text-indigo-600">
-                  {EditarAnuncio.title}
+                  R${EditarAnuncio.title},00
                 </p>
 
                 <p className="text-gray-600 text-sm">{EditarAnuncio.desc}</p>
@@ -117,7 +117,7 @@ export default function EditarAnuncio() {
             <div>
               <label className="font-medium">Preço</label>
               <input
-                type="text"
+                type="number"
                 name="title"
                 required
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
