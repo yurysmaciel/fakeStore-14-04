@@ -12,7 +12,8 @@ export default function Anuncios() {
     },
     {
       id: 2,
-      avatar: "https://img.olx.com.br/images/69/690677496003681.webp",
+      avatar:
+        "https://tse1.mm.bing.net/th/id/OIP.p9GF5fLo7iW9W0NC3TWgswHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
       name: "Toyota Corolla XEI 2.0 Flex 16V Aut. 2019",
       title: "R$ 107.900",
       desc: "Vendo corolla zerado",
