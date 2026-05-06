@@ -14,7 +14,7 @@ export default function MeusAnuncios({ anuncios }) {
         </div>
         <div className="mt-12">
           <ul className="grid gap-8 lg:grid-cols-2">
-            {anuncios?.map((item, idx) => (
+            {anuncios.map((item, idx) => (
               <li key={idx} className="gap-8 sm:flex">
                 <div className="w-full h-60">
                   <img
